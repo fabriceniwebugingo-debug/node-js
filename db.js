@@ -3,7 +3,7 @@ const { Pool } = require('pg');
 const pool = new Pool({
   user: 'postgres',
   host: 'localhost',
-  database: 'customers',
+  database: 'customers', // your database name
   password: '1234',
   port: 5432,
 });
@@ -17,7 +17,7 @@ const pool = new Pool({
         name VARCHAR(100) NOT NULL
       );
     `);
-    console.log('users table ready');
+    console.log('Users table ready');
   } catch (err) {
     console.error('Migration failed:', err);
   }
