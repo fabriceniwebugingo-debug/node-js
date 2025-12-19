@@ -1,30 +1,29 @@
+// node.js
 const express = require('express');
-const app = express();
-const userRoutes = require('./routes/users');
+const cors = require('cors');
 const swaggerUi = require('swagger-ui-express');
 const swaggerJsdoc = require('swagger-jsdoc');
 
+const app = express();
+app.use(cors());
 app.use(express.json());
-app.use('/users', userRoutes);
 
-// Swagger setup
-const options = {
+// Swagger config
+const swaggerSpec = swaggerJsdoc({
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Users API",
+      title: "Telecom API",
       version: "1.0.0",
-      description: "API to manage users",
-    },
-    servers: [
-      { url: "http://localhost:3000" },
-    ],
+      description: "User Registration + Airtime Balance API"
+    }
   },
-  apis: ["./routes/users.js"],
-};
-const specs = swaggerJsdoc(options);
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
+  apis: ["./routes/*.js"]
+});
 
-app.get('/', (req, res) => res.send('API running'));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+// Routes
+app.use('/users', require('./routes/users'));
+
+app.listen(3000, () => console.log("🚀 Server running at http://localhost:3000\nSwagger: http://localhost:3000/api-docs"));

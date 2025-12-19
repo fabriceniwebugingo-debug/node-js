@@ -1,8 +1,28 @@
 {
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^5.2.1",
     "pg": "^8.16.3",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1"
-  }
+  },
+  "name": "node-js",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000n\u0000o\u0000d\u0000e\u0000-\u0000j\u0000s\u0000\r\u0000 \u0000",
+  "main": "db.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fabriceniwebugingo-debug/node-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/fabriceniwebugingo-debug/node-js/issues"
+  },
+  "homepage": "https://github.com/fabriceniwebugingo-debug/node-js#readme"
 }
